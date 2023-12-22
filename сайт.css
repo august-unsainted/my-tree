@@ -69,7 +69,13 @@ h1 {
   justify-content: center;
 }
 body {
-  background-image: url(фон.png);
+  background: linear-gradient(
+    250deg,
+    rgba(117, 122, 191, 0.65) 0%,
+    rgba(137, 131, 196, 0.65) 17.5%,
+    rgba(216, 168, 217, 0.65) 77.92%,
+    rgba(234, 176, 221, 0.65) 100%
+  );
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
