@@ -30,7 +30,7 @@
               stroke="white" stroke-width="3" stroke-miterlimit="0" stroke-linejoin="bevel" />
           </svg>
         </div>
-        <a class="select-cursor" href="#modal1"><img src="./avatar/саша.png"></a>
+        <a href="#modal1"><img src="./avatar/саша.png"></a>
         <div class="multiple-partners">
           <div>
             <img class="icon marriage">
@@ -134,13 +134,11 @@
         <input type="checkbox" id="gallery">
         <label for="gallery">Галерея<svg class="arrow"></svg></label>
         <div class="gallery">
-          <img class="screen" src="./screen1/26.04.2023_23-24-17.png"><img class="screen"
-            src="./screen1/26.04.2023_23-13-33.png"><img class="screen" src="./screen1/20.06.2023_16-53-28.png">
-          <img class="screen" src="./screen1/20.06.2023_16-28-27.png"><img class="screen"
-            src="./screen1/20.06.2023_0-03-47.png"><img class="screen" src="./screen1/17.07.2023_20-40-31.png">
-          <img class="screen" src="./screen1/14.07.2023_17-41-52.png"><img class="screen"
-            src="./screen1/14.07.2023_17-36-41.png"><img class="screen" src="./screen1/07.08.2023_23-43-15.png">
-          <img class="screen" src="./screen1/07.08.2023_23-42-23.png">
+          <a href="#modal-gallery1"><img src="./screen1/1.png" class="screen"></a><img src="./screen1/2.png" class="screen">
+          <img src="./screen1/3.png" class="screen"><img src="./screen1/4.png" class="screen">
+          <img src="./screen1/5.png" class="screen"><img src="./screen1/6.png" class="screen">
+          <img src="./screen1/7.png" class="screen"><img src="./screen1/8.png" class="screen">
+          <img src="./screen1/9.png" class="screen"><img src="./screen1/10.png" class="screen">
         </div>
       </div>
       <div class="section"> <!-- Семья -->
@@ -151,14 +149,21 @@
     <div class="overlay"><a href="#header" class="area"></a></div>
   </div>
   <div id="modal-gallery1" class="modal"> <!-- Всплывающее окно галереи-->
-    <div id="modal-gallery-window1" class="modal-window">
-      <div>
-
-      </div>
-
+    <div class="modal-window gallery-window">
+      <input checked type="radio" name="slider" id="trigger1"><img src="./screen1/1.png"><label for="trigger1"></label>
+      <input type="radio" name="slider" id="trigger2"><img src="./screen1/2.png"><label for="trigger2"></label>
+      <input type="radio" name="slider" id="trigger3"><img src="./screen1/3.png"><label for="trigger3"></label>
+      <input type="radio" name="slider" id="trigger4"><img src="./screen1/4.png"><label for="trigger4"></label>
+      <input type="radio" name="slider" id="trigger5"><img src="./screen1/5.png"><label for="trigger5"></label>
+      <input type="radio" name="slider" id="trigger6"><img src="./screen1/6.png"><label for="trigger6"></label>
+      <input type="radio" name="slider" id="trigger7"><img src="./screen1/7.png"><label for="trigger7"></label>
+      <input type="radio" name="slider" id="trigger8"><img src="./screen1/8.png"><label for="trigger8"></label>
+      <input type="radio" name="slider" id="trigger9"><img src="./screen1/9.png"><label for="trigger9"></label>
+      <input type="radio" name="slider" id="trigger10"><img src="./screen1/10.png"><label for="trigger10"></label>
     </div>
+    <div class="modal-overlay"><a href="#modal1" class="area"></a></div>
   </div>
-  <div class="normal-cursor" id="all"></div>
+  <div class="normal-cursor" id="all"><a href="#header" class="area"></a></div>
 </body>
 
 </html>
