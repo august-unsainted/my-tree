@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="rus">
 
 <head>
-  <link href="сайт.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>Династия Доржеевы</title>
 </head>
 
 <body class="normal-cursor">
@@ -13,9 +17,9 @@
   <div class="tree"> <!-- Основной div древа-->
     <div class="parents">
       <div class="partners">
-        <img src="./avatar/вики.jpg">
+        <img class="вики">
         <img class="icon marriage">
-        <img class="avatar" src="./avatar/лики.jpg">
+        <img class="лики">
       </div>
     </div>
     <div class="siblings">
@@ -30,26 +34,26 @@
               stroke="white" stroke-width="3" stroke-miterlimit="0" stroke-linejoin="bevel" />
           </svg>
         </div>
-        <a href="#modal1"><img src="./avatar/саша.png"></a>
+        <a href="#modal1"><img class="саша"></a>
         <div class="multiple-partners">
           <div>
             <img class="icon marriage">
-            <img class="multiple-partners-img" src="./avatar/лилит.jpg">
+            <img class="multiple-partners-img лилит">
           </div>
           <div>
             <img class="icon couple">
-            <img class="multiple-partners-img" src="./avatar/киеси.jpg">
+            <img class="multiple-partners-img киеси">
           </div>
           <div>
             <img class="icon dna">
-            <img class="multiple-partners-img" src="./avatar/аяки.jpg">
+            <img class="multiple-partners-img аяки">
           </div>
         </div>
       </div>
       <div class="partners">
-        <img src="./avatar/аня.png">
+        <img class="аня">
         <img class="icon marriage">
-        <img src="./avatar/люцифер.png">
+        <img class="люцифер">
       </div>
     </div>
     <div class="cousins">
@@ -59,7 +63,7 @@
             <path d="M2 118V0.827393" stroke="white" stroke-width="3" stroke-miterlimit="0" stroke-linejoin="bevel" />
           </svg>
         </div>
-        <img class="cousin" src="./avatar/даня.png">
+        <img class="cousin даня">
       </div>
       <div class="siblings">
         <div class="partners">
@@ -73,11 +77,11 @@
                 stroke="white" stroke-width="3" stroke-miterlimit="0" stroke-linejoin="bevel" />
             </svg>
           </div>
-          <img src="./avatar/софия.png">
+          <img class="софия">
           <img class="icon ex">
-          <img src="./avatar/мисаки.png">
+          <img class="мисаки">
         </div>
-        <div><img src="./avatar/костя.png"></div>
+        <div><img class="костя"></div>
       </div>
     </div>
   </div>
@@ -85,7 +89,7 @@
   <div id="modal1" class="modal"> <!-- Всплывающее окно-->
     <div class="modal-window">
       <div class="general">
-        <img class="main" src="./avatar/саша.png">
+        <img class="main саша">
         <div>
           <div class="name">
             <h2>Саша Ваторе (Доржеева)</h2>
@@ -118,23 +122,29 @@
         <input type="checkbox" id="bio">
         <label for="bio">Биография <svg class="arrow"></svg></label>
         <div class="biography">
-          <p>
-            саша - первый ребенок в семье, она росла в любви и заботе, всегда отлично училась, стремилась стать лучше. в
-            подростковом возрасте стала заниматься спортом, чему и посвятила всю свою жизнь. окончив университет,
-            устроилась фитнес-тренером в ближайший спортзал, где позже достигла больших успехов. она много работала, но
-            всегда уделяла время семье, ходила на свидания, встречалась с лилит и киеси.
-            позже состоялась свадьба саши и лилит, после чего они съехались. сначала они жили в квартире саши, однако
-            затем девушка забеременела от аяки, и после родов они приняли решение переехать. ее сын даня остался жить с
-            аней и ее семьей, а саша и лилит стали жить в форготн холлоу.
-            саша умерла в глубокой старости, прожив счастливую жизнь и упокоившись с миром.
-          </p>
+          <div>
+            <p>
+              Саша - первый ребенок в семье, она росла в любви и заботе, всегда отлично училась, стремилась стать лучше.
+              В
+              подростковом возрасте стала заниматься спортом, чему и посвятила всю свою жизнь. Окончив университет,
+              устроилась фитнес-тренером в ближайший спортзал, где позже достигла больших успехов. Она много работала,
+              но
+              всегда уделяла время семье, ходила на свидания, встречалась с Лилит и Киеси.
+            </p>
+            <p>
+              Позже состоялась свадьба Саши и Лилит, после чего они съехались. Сначала они жили в квартире Саши, однако
+              затем девушка забеременела от Аяки, и после родов они приняли решение переехать. Ее сын Даня остался жить
+              с Аней и ее семьей, а Саша и Лилит стали жить в Форготн Холлоу.</p>
+            <p>Саша умерла в глубокой старости, прожив счастливую жизнь и упокоившись с миром.</p>
+          </div>
         </div>
       </div>
       <div class="section"> <!-- Галерея -->
         <input type="checkbox" id="gallery">
         <label for="gallery">Галерея<svg class="arrow"></svg></label>
         <div class="gallery">
-          <a href="#modal-gallery1"><img src="./screen1/1.png" class="screen"></a><img src="./screen1/2.png" class="screen">
+          <a href="#modal-gallery1"><img src="./screen1/1.png" class="screen"></a><img src="./screen1/2.png"
+            class="screen">
           <img src="./screen1/3.png" class="screen"><img src="./screen1/4.png" class="screen">
           <img src="./screen1/5.png" class="screen"><img src="./screen1/6.png" class="screen">
           <img src="./screen1/7.png" class="screen"><img src="./screen1/8.png" class="screen">
@@ -144,6 +154,15 @@
       <div class="section"> <!-- Семья -->
         <input type="checkbox" id="family">
         <label for="family">Семья<svg class="arrow"></svg></label>
+        <div class="family">
+          <div><img class="вики"><span>Мать</span></div>
+          <div><img class="лики"><span>Мать</span></div>
+          <div><img class="аня"><span>Сестра</span></div>
+          <div><img class="аяки"><span>Партнер</span></div>
+          <div><img class="киеси"><span>Парень</span></div>
+          <div><img class="лилит"><span>Супруга</span></div>
+          <div><img class="даня"><span>Сын</span></div>
+        </div>
       </div>
     </div>
     <div class="overlay"><a href="#header" class="area"></a></div>
