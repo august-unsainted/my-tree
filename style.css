@@ -209,7 +209,7 @@ img {
   opacity: 0;
   transform: translate(0px, -100%);
   flex-direction: column;
-  gap: 32px;
+  gap: 44px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -367,6 +367,7 @@ span {
   opacity: 1;
   margin-bottom: 16px;
   padding: 19px 22px;
+  border: 3px solid;
 }
 .biography {
   height: 0;
@@ -374,7 +375,7 @@ span {
   transition: all 0.35s ease-in 0s;
   overflow: hidden;
   opacity: 0;
-  border: 3px solid;
+  border: 0px solid;
   font-size: 22px;
   line-height: 32px;
   border-radius: 8px;
@@ -400,6 +401,7 @@ span {
   opacity: 1;
   margin-bottom: 16px;
   .screen-preview {
+    display: inline;
     visibility: visible;
   }
 }
@@ -412,6 +414,7 @@ span {
   gap: 16px;
 }
 .screen-preview {
+  display: none;
   visibility: hidden;
   border-radius: 20px;
   border: none;
