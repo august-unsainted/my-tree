@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="rus">
+<html lang="ru">
 
 <head>
   <link href="style.css" rel="stylesheet">
@@ -7,9 +7,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <script src="app.js" defer></script>
   <title>Династия Доржеевы</title>
 </head>
-
 <body class="normal-cursor">
   <div class="header">
     <h1>Династия Доржеевы</h1>
@@ -34,7 +34,7 @@
               stroke="white" stroke-width="3" stroke-miterlimit="0" stroke-linejoin="bevel" />
           </svg>
         </div>
-        <a href="#modal1"><img class="саша"></a>
+        <img class="саша select-cursor">
         <div class="multiple-partners">
           <div>
             <img class="icon marriage">
@@ -107,26 +107,24 @@
               </svg>
             </div>
           </div>
-          <div class="traits dragscroll drag-cursor">
-            <span>Пожилая</span>
-            <span>Идеальный малыш</span>
-            <span>Дар общения</span>
-            <span>Чистюля</span>
-            <span>Активная</span>
-            <span>Веселая</span>
-            <span>Культурист</span>
-          </div>
+          <ul class="traits dragscroll drag-cursor">
+            <li>Пожилая</li>
+            <li>Идеальный малыш</li>
+            <li>Дар общения</li>
+            <li>Чистюля</li>
+            <li>Активная</li>
+            <li>Веселая</li>
+            <li>Культурист</li>
+          </ul>
         </div>
       </div>
       <div class="section"> <!-- Биография -->
         <input type="checkbox" id="bio">
         <label for="bio">Биография <svg class="arrow"></svg></label>
         <div class="biography">
-          <div>
             <p>
               Саша - первый ребенок в семье, она росла в любви и заботе, всегда отлично училась, стремилась стать лучше.
-              В
-              подростковом возрасте стала заниматься спортом, чему и посвятила всю свою жизнь. Окончив университет,
+              В подростковом возрасте стала заниматься спортом, чему и посвятила всю свою жизнь. Окончив университет,
               устроилась фитнес-тренером в ближайший спортзал, где позже достигла больших успехов. Она много работала,
               но
               всегда уделяла время семье, ходила на свидания, встречалась с Лилит и Киеси.
@@ -136,19 +134,22 @@
               затем девушка забеременела от Аяки, и после родов они приняли решение переехать. Ее сын Даня остался жить
               с Аней и ее семьей, а Саша и Лилит стали жить в Форготн Холлоу.</p>
             <p>Саша умерла в глубокой старости, прожив счастливую жизнь и упокоившись с миром.</p>
-          </div>
         </div>
       </div>
       <div class="section"> <!-- Галерея -->
         <input type="checkbox" id="gallery">
         <label for="gallery">Галерея<svg class="arrow"></svg></label>
         <div class="gallery">
-          <a href="#modal-gallery1"><img src="./screen1/1.png" class="screen"></a><img src="./screen1/2.png"
-            class="screen">
-          <img src="./screen1/3.png" class="screen"><img src="./screen1/4.png" class="screen">
-          <img src="./screen1/5.png" class="screen"><img src="./screen1/6.png" class="screen">
-          <img src="./screen1/7.png" class="screen"><img src="./screen1/8.png" class="screen">
-          <img src="./screen1/9.png" class="screen"><img src="./screen1/10.png" class="screen">
+          <img src="./screen1/1.png" class="screen-preview select-cursor" data-index="1">
+          <img src="./screen1/2.png" class="screen-preview select-cursor" data-index="2">
+          <img src="./screen1/3.png" class="screen-preview select-cursor" data-index="3">
+          <img src="./screen1/4.png" class="screen-preview select-cursor" data-index="4">
+          <img src="./screen1/5.png" class="screen-preview select-cursor" data-index="5">
+          <img src="./screen1/6.png" class="screen-preview select-cursor" data-index="6">
+          <img src="./screen1/7.png" class="screen-preview select-cursor" data-index="7">
+          <img src="./screen1/8.png" class="screen-preview select-cursor" data-index="8">
+          <img src="./screen1/9.png" class="screen-preview select-cursor" data-index="9">
+          <img src="./screen1/10.png" class="screen-preview select-cursor" data-index="10">
         </div>
       </div>
       <div class="section"> <!-- Семья -->
@@ -165,24 +166,35 @@
         </div>
       </div>
     </div>
-    <div class="overlay"><a href="#header" class="area"></a></div>
+    <div class="overlay select-cursor"></div>
   </div>
-  <div id="modal-gallery1" class="modal"> <!-- Всплывающее окно галереи-->
+  <div id="modal-gallery1" class="modal modal-gallery"> <!-- Всплывающее окно галереи-->
     <div class="modal-window gallery-window">
-      <input checked type="radio" name="slider" id="trigger1"><img src="./screen1/1.png"><label for="trigger1"></label>
-      <input type="radio" name="slider" id="trigger2"><img src="./screen1/2.png"><label for="trigger2"></label>
-      <input type="radio" name="slider" id="trigger3"><img src="./screen1/3.png"><label for="trigger3"></label>
-      <input type="radio" name="slider" id="trigger4"><img src="./screen1/4.png"><label for="trigger4"></label>
-      <input type="radio" name="slider" id="trigger5"><img src="./screen1/5.png"><label for="trigger5"></label>
-      <input type="radio" name="slider" id="trigger6"><img src="./screen1/6.png"><label for="trigger6"></label>
-      <input type="radio" name="slider" id="trigger7"><img src="./screen1/7.png"><label for="trigger7"></label>
-      <input type="radio" name="slider" id="trigger8"><img src="./screen1/8.png"><label for="trigger8"></label>
-      <input type="radio" name="slider" id="trigger9"><img src="./screen1/9.png"><label for="trigger9"></label>
-      <input type="radio" name="slider" id="trigger10"><img src="./screen1/10.png"><label for="trigger10"></label>
+      <div class="slider">
+        <img class="screens" src="./screen1/1.png"><img class="screens" src="./screen1/2.png">
+        <img class="screens" src="./screen1/3.png"><img class="screens" src="./screen1/4.png">
+        <img class="screens" src="./screen1/5.png"><img class="screens" src="./screen1/6.png">
+        <img class="screens" src="./screen1/7.png"><img class="screens" src="./screen1/8.png">
+        <img class="screens" src="./screen1/9.png"><img class="screens" src="./screen1/10.png">
+      </div>
+      <div class="control prev select-cursor"></div>
+      <div class="control next select-cursor"></div>
+      <span class="counter"></span>
     </div>
-    <div class="modal-overlay"><a href="#modal1" class="area"></a></div>
+
+    <span class="description">Саша в детстве</span>
+    <span class="description">Саша в детстве</span>
+    <span class="description">Посиделки дома</span>
+    <span class="description">Саша с Киеси</span>
+    <span class="description">День рождения Саши</span>
+    <span class="description">Домашняя вечеринка</span>
+    <span class="description">Выпускной!</span>
+    <span class="description">Саша с подругой из университета</span>
+    <span class="description">Саша с Даней</span>
+    <span class="description">Саша с Даней</span>
+    <div class="gallery-overlay select-cursor"></div>
   </div>
-  <div class="normal-cursor" id="all"><a href="#header" class="area"></a></div>
+  <div class="normal-cursor" id="all"></div>
 </body>
 
 </html>
