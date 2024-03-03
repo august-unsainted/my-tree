@@ -155,13 +155,12 @@ function modalShow(a) {
     next.onclick = () => {
       sliderNext()
     }
+    addEventListener('keydown', (e) => {
+      if (e.key == 'ArrowLeft') sliderPrev()
+      if (e.key == 'ArrowRight') sliderNext()
+    })
   } else screenPreview.innerHTML = '<p>У персонажа нет галереи</p>'
 }
-
-addEventListener('keydown', (e) => {
-  if (e.key == 'ArrowLeft') sliderPrev()
-  if (e.key == 'ArrowRight') sliderNext()
-})
 
 mainOverlay.onclick = () => {
   modalClose(mainModal, mainModalWindow)
