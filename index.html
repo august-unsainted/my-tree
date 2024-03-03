@@ -6,10 +6,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+  <script src="person.js" defer></script>
   <script src="app.js" defer></script>
   <title>Династия Доржеевы</title>
 </head>
+
 <body class="normal-cursor">
   <div class="header">
     <h1>Династия Доржеевы</h1>
@@ -17,9 +19,9 @@
   <div class="tree"> <!-- Основной div древа-->
     <div class="parents">
       <div class="partners">
-        <img class="вики">
+        <img class="Вики sims">
         <img class="icon marriage">
-        <img class="лики">
+        <img class="Лики sims">
       </div>
     </div>
     <div class="siblings">
@@ -34,26 +36,26 @@
               stroke="white" stroke-width="3" stroke-miterlimit="0" stroke-linejoin="bevel" />
           </svg>
         </div>
-        <img class="саша select-cursor">
+        <img class="Саша sims select-cursor">
         <div class="multiple-partners">
           <div>
             <img class="icon marriage">
-            <img class="multiple-partners-img лилит">
+            <img class="multiple-partners-img Лилит sims">
           </div>
           <div>
             <img class="icon couple">
-            <img class="multiple-partners-img киеси">
+            <img class="multiple-partners-img Киеси sims">
           </div>
           <div>
             <img class="icon dna">
-            <img class="multiple-partners-img аяки">
+            <img class="multiple-partners-img Аяки sims">
           </div>
         </div>
       </div>
       <div class="partners">
-        <img class="аня">
+        <img class="Аня sims">
         <img class="icon marriage">
-        <img class="люцифер">
+        <img class="Люцифер sims">
       </div>
     </div>
     <div class="cousins">
@@ -63,7 +65,7 @@
             <path d="M2 118V0.827393" stroke="white" stroke-width="3" stroke-miterlimit="0" stroke-linejoin="bevel" />
           </svg>
         </div>
-        <img class="cousin даня">
+        <img class="cousin Даня sims">
       </div>
       <div class="siblings">
         <div class="partners">
@@ -77,25 +79,25 @@
                 stroke="white" stroke-width="3" stroke-miterlimit="0" stroke-linejoin="bevel" />
             </svg>
           </div>
-          <img class="софия">
+          <img class="София sims">
           <img class="icon ex">
-          <img class="мисаки">
+          <img class="Мисаки sims">
         </div>
-        <div><img class="костя"></div>
+        <div><img class="Костя sims"></div>
       </div>
     </div>
   </div>
   <script defer src="./dragscroll/dragscroll.js"></script>
-  <div id="modal1" class="modal"> <!-- Всплывающее окно-->
+  <div class="modal"> <!-- Всплывающее окно-->
     <div class="modal-window">
       <div class="general">
-        <img class="main саша">
+        <img id="avatar" class="main">
         <div>
           <div class="name">
-            <h2>Саша Ваторе (Доржеева)</h2>
+            <h2 id="main-name"></h2>
             <div class="death select-cursor">
               <div class="tip">
-                <span>смерть от старости</span>
+                <span id="death">смерть от старости</span>
                 <div class="triangle"></div>
               </div>
               <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,62 +109,31 @@
               </svg>
             </div>
           </div>
-          <ul class="traits dragscroll drag-cursor">
-            <li>Пожилая</li>
-            <li>Идеальный малыш</li>
-            <li>Дар общения</li>
-            <li>Чистюля</li>
-            <li>Активная</li>
-            <li>Веселая</li>
-            <li>Культурист</li>
+          <ul id="traits" class="traits dragscroll drag-cursor">
           </ul>
         </div>
       </div>
       <div class="section"> <!-- Биография -->
         <input type="checkbox" id="bio">
         <label for="bio">Биография <svg class="arrow"></svg></label>
-        <div class="biography">
-            <p>
-              Саша - первый ребенок в семье, она росла в любви и заботе, всегда отлично училась, стремилась стать лучше.
-              В подростковом возрасте стала заниматься спортом, чему и посвятила всю свою жизнь. Окончив университет,
-              устроилась фитнес-тренером в ближайший спортзал, где позже достигла больших успехов. Она много работала,
-              но
-              всегда уделяла время семье, ходила на свидания, встречалась с Лилит и Киеси.
-            </p>
-            <p>
-              Позже состоялась свадьба Саши и Лилит, после чего они съехались. Сначала они жили в квартире Саши, однако
-              затем девушка забеременела от Аяки, и после родов они приняли решение переехать. Ее сын Даня остался жить
-              с Аней и ее семьей, а Саша и Лилит стали жить в Форготн Холлоу.</p>
-            <p>Саша умерла в глубокой старости, прожив счастливую жизнь и упокоившись с миром.</p>
-        </div>
+        <div class="biography"></div>
       </div>
       <div class="section"> <!-- Галерея -->
         <input type="checkbox" id="gallery">
         <label for="gallery">Галерея<svg class="arrow"></svg></label>
-        <div class="gallery">
-          <img src="./screen1/1.png" class="screen-preview select-cursor" data-index="1">
-          <img src="./screen1/2.png" class="screen-preview select-cursor" data-index="2">
-          <img src="./screen1/3.png" class="screen-preview select-cursor" data-index="3">
-          <img src="./screen1/4.png" class="screen-preview select-cursor" data-index="4">
-          <img src="./screen1/5.png" class="screen-preview select-cursor" data-index="5">
-          <img src="./screen1/6.png" class="screen-preview select-cursor" data-index="6">
-          <img src="./screen1/7.png" class="screen-preview select-cursor" data-index="7">
-          <img src="./screen1/8.png" class="screen-preview select-cursor" data-index="8">
-          <img src="./screen1/9.png" class="screen-preview select-cursor" data-index="9">
-          <img src="./screen1/10.png" class="screen-preview select-cursor" data-index="10">
-        </div>
+        <div id="screen-preview" class="gallery"></div>
       </div>
       <div class="section"> <!-- Семья -->
         <input type="checkbox" id="family">
         <label for="family">Семья<svg class="arrow"></svg></label>
         <div class="family">
-          <div><img class="вики"><span>Мать</span></div>
-          <div><img class="лики"><span>Мать</span></div>
-          <div><img class="аня"><span>Сестра</span></div>
-          <div><img class="аяки"><span>Партнер</span></div>
-          <div><img class="киеси"><span>Парень</span></div>
-          <div><img class="лилит"><span>Супруга</span></div>
-          <div><img class="даня"><span>Сын</span></div>
+          <div><img class="Вики sims"><span>Мать</span></div>
+          <div><img class="Лики sims"><span>Мать</span></div>
+          <div><img class="Аня sims"><span>Сестра</span></div>
+          <div><img class="Аяки sims"><span>Партнер</span></div>
+          <div><img class="Киеси sims"><span>Парень</span></div>
+          <div><img class="Лилит sims"><span>Супруга</span></div>
+          <div><img class="Даня sims"><span>Сын</span></div>
         </div>
       </div>
     </div>
@@ -170,28 +141,13 @@
   </div>
   <div id="modal-gallery1" class="modal modal-gallery"> <!-- Всплывающее окно галереи-->
     <div class="modal-window gallery-window">
-      <div class="slider">
-        <img class="screens" src="./screen1/1.png"><img class="screens" src="./screen1/2.png">
-        <img class="screens" src="./screen1/3.png"><img class="screens" src="./screen1/4.png">
-        <img class="screens" src="./screen1/5.png"><img class="screens" src="./screen1/6.png">
-        <img class="screens" src="./screen1/7.png"><img class="screens" src="./screen1/8.png">
-        <img class="screens" src="./screen1/9.png"><img class="screens" src="./screen1/10.png">
-      </div>
+      <div class="slider"></div>
       <div class="control prev select-cursor"></div>
       <div class="control next select-cursor"></div>
       <span class="counter"></span>
     </div>
+    <div id="description"></div>
 
-    <span class="description">Саша в детстве</span>
-    <span class="description">Саша в детстве</span>
-    <span class="description">Посиделки дома</span>
-    <span class="description">Саша с Киеси</span>
-    <span class="description">День рождения Саши</span>
-    <span class="description">Домашняя вечеринка</span>
-    <span class="description">Выпускной!</span>
-    <span class="description">Саша с подругой из университета</span>
-    <span class="description">Саша с Даней</span>
-    <span class="description">Саша с Даней</span>
     <div class="gallery-overlay select-cursor"></div>
   </div>
   <div class="normal-cursor" id="all"></div>
