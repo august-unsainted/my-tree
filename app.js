@@ -117,12 +117,15 @@ function modalShow(a) {
   traits.innerHTML = ''
   biography.innerHTML = ''
   screenPreview.innerHTML = ''
+  let deathDiv = document.querySelector('.death')
   localStorage.setItem('activePerson', a)
   mainName.innerHTML = person[a].firstName + ' ' + person[a].lastName
   if (person[a].death === undefined) {
-    deathDiv = document.querySelector('.death')
     deathDiv.style.visibility = 'hidden'
-  } else death.innerHTML = person[a].death
+  } else {
+    deathDiv.style.visibility = 'visible'
+    death.innerHTML = person[a].death
+  }
   avatar.style.content = 'url(./avatar/' + person[a].firstName + '.png'
   if (person[a].traits === undefined) {
     traits.innerHTML = '<li>Нет черт характера</li>'
