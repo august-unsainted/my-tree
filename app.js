@@ -23,14 +23,23 @@ let biography = document.querySelector('.biography')
 let input = document.getElementsByTagName('input')
 let body = document.body
 
-for (i = 0; i < sims.length; i++) {
-  let simName = sims[i].className
-  person.forEach((sim) => {
-    if (simName.includes(sim.firstName) == true)
-      sims[i].style.content = `url(./avatar/${sim.firstName}.png)`
+for (let i = 0; i < sims.length; i++) {
+  person.forEach((person) => {
+    if (sims[i].className.includes(person.firstName) == true) sims[i].style.content = `url(./avatar/${person.firstName}.png)`
   })
-  if (sims[i].style.content == '')
-    sims[i].style.content = 'url(./icons/no-img.png'
+  if (sims[i].style.content == '') sims[i].style.content = 'url(./icons/no-img.png'
+  // person.forEach((person) => {
+  //   if (sims[i].className.includes(person.firstName) == true) {
+  //     tipDiv = document.createElement('div')
+  //     tipSpan = document.createElement('span')
+  //     tipSpan.setAttribute('class', 'simTip')
+  //     tipSpan.textContent = person.firstName + ' ' + person.lastName
+  //     tipDiv.setAttribute('class', 'simTipDiv')
+  //     sims[i].parentNode.insertBefore(tipDiv, sims[i])
+  //     tipDiv.appendChild(sims[i], tipSpan)
+  //     tipDiv.appendChild(tipSpan)
+  //   }
+  // })
 }
 
 function modalOpen(mainModal, mainModalWindow) {
@@ -187,23 +196,33 @@ if (activeModal == 'true') {
   }
 }
 
-function openPersonalModal() {
-  for (let n = 0; n < sims.length; n++) {
-    let simName = sims[n].className
-    sims[n].addEventListener('click', () => {
-      person.forEach((person, a) => {
-        if (simName.includes(person.firstName) == true) {
-          if (activeModal === 'true') {
-            for (i = 0; i < input.length; i++) {
-              if (input[i].type == 'checkbox') input[i].checked = false
-            }
+for (n = 0; n < sims.length; n++) {
+  let simName = sims[n].className
+  sims[n].addEventListener('click', () => {
+    person.forEach((person, a) => {
+      if (simName.includes(person.firstName) == true) {
+        if (activeModal === 'true') {
+          for (i = 0; i < input.length; i++) {
+            if (input[i].type == 'checkbox') input[i].checked = false
           }
-          modalShow(a)
-          modalOpen(mainModal, mainModalWindow)
         }
-      })
+        modalShow(a)
+        modalOpen(mainModal, mainModalWindow)
+      }
     })
-  }
+  })
 }
 
-openPersonalModal()
+// for (let n = 0; n < sims.length; n++) {
+//   sims[n].addEventListener('mouseover', () => {
+//     tipSpan = sims[n].nextElementSibling
+//     tipSpan.style.opacity = '1'
+//     tipSpan.style.visibility = 'visible'
+//   })
+//   sims[n].addEventListener('mouseout', () => {
+//     document.querySelectorAll('.simTip').forEach((tip) => {
+//       tip.style.opacity = '0'
+//       tip.style.visibility = 'hidden'
+//     })
+//   })
+// }

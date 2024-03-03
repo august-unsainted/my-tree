@@ -518,3 +518,14 @@ span {
 .modal-gallery {
   backdrop-filter: none;
 }
+.simTip {
+  position: absolute;
+  margin-top: 100px;
+  transition: all ease .3s;
+  opacity: 0;
+  visibility: hidden;
+}
+.simTipDiv {
+  display: flex;
+  flex-direction: column;
+}
