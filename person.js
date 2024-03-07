@@ -3,7 +3,7 @@ let person = [
       firstName: 'Саша',
       lastName: 'Ваторе (Доржеева)',
       gender: 'Ж',
-      death: 'смерть от старости',
+      death: 'Смерть от старости',
       traits: [
         'Пожилая',
         'Идеальный малыш',
@@ -34,7 +34,7 @@ let person = [
       firstName: 'Аня',
       lastName: 'Сигворт (Доржеева)',
       gender: 'Ж',
-      death: 'смерть от старости',
+      death: 'Смерть от старости',
       traits: [
         'Пожилая',
         'Творческое дарование',
@@ -58,7 +58,7 @@ let person = [
       firstName: 'Даня',
       lastName: 'Доржеев',
       gender: 'М',
-      death: 'смерть от удара молнии',
+      death: 'Смерть от удара молнии',
       traits: [
         'Молодой',
         'Творческое дарование',
@@ -73,7 +73,7 @@ let person = [
       firstName: 'Люцифер',
       lastName: 'Сигворт',
       gender: 'М',
-      death: 'смерть от старости',
+      death: 'Смерть от старости',
       traits: [
         'Пожилой',
         'Лежебока',
@@ -105,7 +105,7 @@ let person = [
       firstName: 'Киеси',
       lastName: 'Ито',
       gender: 'М',
-      death: 'смерть от старости',
+      death: 'Смерть от старости',
       traits: [
         'Романтик',
         'Вечное дитя',
@@ -120,7 +120,7 @@ let person = [
       firstName: 'Аяки',
       lastName: 'Тамура',
       gender: 'Ж',
-      death: 'смерть от старости',
+      death: 'Смерть от старости',
     },
     {
       firstName: 'София',

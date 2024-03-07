@@ -121,7 +121,7 @@ function modalShow(a) {
     deathDiv.style.visibility = 'hidden'
   } else {
     deathDiv.style.visibility = 'visible'
-    death.innerHTML = person[a].death
+    traits.innerHTML = `<li>${person[a].death}</li>`
   }
 
   if (person[a].traits === undefined) {
