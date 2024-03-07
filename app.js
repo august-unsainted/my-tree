@@ -10,10 +10,10 @@ const mainModalWindow = document.querySelector('.modal-window')
 const mainOverlay = document.querySelector('.overlay')
 const descriptionsDiv = document.getElementById('description')
 const screenPreview = document.getElementById('screen-preview')
+let death = document.querySelector('.death')
 let screens = document.querySelectorAll('.screens')
 let sims = document.getElementsByClassName('sims')
 let mainName = document.getElementById('main-name')
-let death = document.getElementById('death')
 let avatar = document.getElementById('avatar')
 let traits = document.getElementById('traits')
 let descriptions = document.querySelectorAll('.description')
@@ -116,14 +116,12 @@ function modalShow(a) {
   biography.scrollTop = 0
   traits.scrollTo(0, 0)
   mainName.innerHTML = person[a].firstName + ' ' + person[a].lastName
-  deathDiv = document.querySelector('.death')
   if (person[a].death === undefined) {
-    deathDiv.style.visibility = 'hidden'
+    death.style.visibility = 'hidden'
   } else {
-    deathDiv.style.visibility = 'visible'
-    traits.innerHTML = `<li>${person[a].death}</li>`
+    death.style.visibility = 'visible'
+    traits.innerHTML = `<li class="death-trait">${person[a].death}</li>`
   }
-
   if (person[a].traits === undefined) {
     traits.innerHTML = '<li>Нет черт характера</li>'
   } else
@@ -168,6 +166,19 @@ function modalShow(a) {
       sliderNext()
     }
   } else screenPreview.innerHTML = '<p class="no-info">У персонажа нет галереи</p>'
+  let traitsArray = traits.childNodes
+  death.addEventListener('mouseover', () => {
+    traitsArray.forEach((trait) => {
+      trait.style.opacity = '0.5'
+    })
+    deathTrait = document.querySelector('.death-trait')
+    deathTrait.style.opacity = '1'
+  })
+  death.addEventListener('mouseout', () => {
+    traitsArray.forEach((trait) => {
+      trait.style.opacity = '1'
+    })
+  })
 }
 
 addEventListener('keydown', (e) => {
