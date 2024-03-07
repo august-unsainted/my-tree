@@ -5,10 +5,8 @@ const controls = document.querySelectorAll('.control')
 const modalGallery = document.getElementById('modal-gallery1')
 const modalWindow = document.querySelector('.gallery-window')
 const galleryOverlay = document.querySelector('.gallery-overlay')
-const counter = document.querySelector('.counter')
 const mainModal = document.querySelector('.modal')
 const mainModalWindow = document.querySelector('.modal-window')
-const sim1 = document.querySelector('.саша')
 const mainOverlay = document.querySelector('.overlay')
 const descriptionsDiv = document.getElementById('description')
 const screenPreview = document.getElementById('screen-preview')
@@ -25,9 +23,12 @@ let body = document.body
 
 for (let i = 0; i < sims.length; i++) {
   person.forEach((person) => {
-    if (sims[i].className.includes(person.firstName) == true) sims[i].style.content = `url(./avatar/${person.firstName}.png)`
+    if (sims[i].className.includes(person.firstName) == true)
+      sims[i].style.content = `url(./avatar/${person.firstName}.png)`
   })
-  if (sims[i].style.content == '') sims[i].style.content = 'url(./icons/no-img.png'
+  if (sims[i].style.content == '')
+    sims[i].style.content = 'url(./icons/no-img.png'
+  
   // person.forEach((person) => {
   //   if (sims[i].className.includes(person.firstName) == true) {
   //     tipDiv = document.createElement('div')
@@ -76,7 +77,7 @@ function display() {
       screens[i + 1].style.opacity = '0'
       descriptions[i + 1].classList.remove('visible')
     }
-    counter.innerHTML = i + 1 + '/' + screens.length
+    document.querySelector('.counter').innerHTML = i + 1 + '/' + screens.length
     galleryOverlay.onclick = () => {
       descriptions.forEach((item) => item.classList.remove('visible'))
       screens.forEach((item) => (item.style.opacity = '0'))
@@ -112,6 +113,8 @@ function modalShow(a) {
   localStorage.setItem('activePerson', a)
   avatar.style.content = `url(./avatar/${person[a].firstName}.png`
   clearHTML(descriptionsDiv, slider, traits, biography, screenPreview)
+  biography.scrollTop = 0
+  traits.scrollTo(0, 0)
   mainName.innerHTML = person[a].firstName + ' ' + person[a].lastName
   deathDiv = document.querySelector('.death')
   if (person[a].death === undefined) {

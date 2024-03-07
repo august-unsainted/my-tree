@@ -54,17 +54,17 @@ h1 {
   font-weight: normal;
 }
 .header {
-  height: 80px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  border-bottom: 3px solid;
   backdrop-filter: blur(10px);
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #e5ceee8a;
+  padding: 12px;
 }
 body {
   background: linear-gradient(
@@ -113,7 +113,6 @@ img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 3px solid white;
   object-fit: cover;
 }
 .icon {
@@ -159,22 +158,20 @@ img {
 .modal-window {
   position: relative;
   z-index: 4;
-  width: 1100px;
-  height: 610px;
+  width: 1000px;
+  height: 560px;
   border-radius: 20px;
-  border: 3px solid;
   background-color: #dcc0e5;
-  padding: 48px;
-  padding-right: 0px;
+  padding: 52px;
   display: flex;
   transition: all 0.3s ease-out 0s;
   opacity: 0;
+  visibility: hidden;
   flex-direction: column;
-  gap: 44px;
+  gap: 52px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-
 .area {
   width: 100%;
   height: 100%;
@@ -187,12 +184,17 @@ img {
   height: max-content;
   display: flex;
   align-items: center;
+  gap: 40px;
+}
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 .main {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  margin-right: 28px;
 }
 .modal .overlay {
   position: absolute;
@@ -264,16 +266,16 @@ span {
 .traits {
   display: flex;
   gap: 12px;
-  width: 860px;
+  width: 696px;
   overflow-x: scroll;
   white-space: nowrap;
 }
 .traits li {
   display: inline;
   font-size: 24px;
-  padding: 5px 16px;
-  border: 3px solid white;
-  border-radius: 20px;
+  padding: 4px 16px;
+  border-radius: 15px;
+  background: #e5ceee;
 }
 .traits li:last-child {
   margin-right: 12px;
@@ -307,7 +309,7 @@ span {
   width: 310px;
   height: 46px;
   gap: 32px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   .arrow {
     width: 35px;
     height: 20px;
@@ -315,33 +317,34 @@ span {
   }
 }
 #bio:checked ~ .biography {
-  width: 944px;
-  height: 315px;
+  height: max-content;
   opacity: 1;
   margin-bottom: 16px;
-  padding: 19px 22px;
-  border: 3px solid;
+  padding: 16px;
 }
 .biography {
   height: 0;
-  width: 944px;
+  width: inherit;
   transition: all 0.35s ease-in 0s;
   overflow: hidden;
   opacity: 0;
   border: 0px solid;
-  font-size: 22px;
-  line-height: 32px;
+  font-size: 24px;
+  line-height: 36px;
   border-radius: 20px;
   overflow-y: scroll;
-  background-color: rgba(155, 160, 226, 0.1);
+  background-color: #e5ceee;
   text-indent: 52px;
+}
+.biography p {
+  margin-bottom: 8px;
 }
 #gallery:checked ~ label {
   font-size: 38px;
   width: 310px;
   height: 46px;
   gap: 32px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   .arrow {
     width: 35px;
     height: 20px;
@@ -350,7 +353,7 @@ span {
 }
 #gallery:checked ~ .gallery {
   transition: all 0.4s ease-in 0s;
-  width: 944px;
+  width: inherit;
   height: max-content;
   opacity: 1;
   margin-bottom: 16px;
@@ -373,9 +376,8 @@ span {
   visibility: hidden;
   border-radius: 20px;
   border: none;
-  width: 224px;
+  width: 212px;
   height: 132px;
-  border: 3px solid;
   transition: all 0.4s linear 0s;
 }
 #family:checked ~ label {
@@ -383,7 +385,7 @@ span {
   width: 310px;
   height: 46px;
   gap: 32px;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   .arrow {
     width: 35px;
     height: 20px;
@@ -391,19 +393,20 @@ span {
   }
 }
 #family:checked ~ .family {
+  display: flex;
   width: auto;
   height: max-content;
   opacity: 1;
-  transition: all 0.4s ease-in 0s;
+  transition: all 0.3s ease-in 0s;
   margin-bottom: 16px;
 }
 .family {
   opacity: 0;
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: 42px;
   height: 0px;
-  transition: all 0.4s ease-in 0s;
+  transition: all 0.3s ease-in 0s;
 }
 .family > div {
   display: flex;
@@ -436,7 +439,7 @@ span {
   width: inherit;
   height: max-content;
   position: absolute;
-  transition: all .3s ease-in 0s;
+  transition: all 0.3s ease-in 0s;
   border-radius: 0;
   border: 0;
   z-index: 1;
@@ -475,16 +478,21 @@ span {
 }
 #description span {
   position: absolute;
-  display: block;
-  width: 100%;
   text-align: center;
-  margin-top: 8px;
+  padding: 12px;
   font-size: 40px;
-  color: white;
+  background-color: #e5ceee2b;
+  color: rgb(255 255 255 / 60%);
   font-family: 'Montserrat', sans-serif;
   visibility: hidden;
   opacity: 0;
   transition: all 0.3s linear 0s;
+  z-index: 2;
+  left: 24px;
+  right: 24px;
+  top: 24px;
+  border-radius: 20px;
+  opacity: 0;
 }
 #description span.visible {
   opacity: 1;
@@ -507,13 +515,13 @@ span {
 }
 .counter {
   position: absolute;
-  left: 30px;
-  top: 30px;
-  z-index: 3;
+  left: 32px;
+  top: 24px;
+  z-index: 2;
   font-size: 40px;
-  padding: 15px;
+  padding: 12px;
   border-radius: 10px;
-  background-color: rgba(51, 53, 81, 0.4);
+  opacity: 0.6;
 }
 .modal-gallery {
   backdrop-filter: none;
@@ -521,7 +529,7 @@ span {
 .simTip {
   position: absolute;
   margin-top: 100px;
-  transition: all ease .3s;
+  transition: all ease 0.3s;
   opacity: 0;
   visibility: hidden;
 }
