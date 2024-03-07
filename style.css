@@ -328,16 +328,26 @@ span {
   transition: all 0.35s ease-in 0s;
   overflow: hidden;
   opacity: 0;
-  border: 0px solid;
   font-size: 24px;
   line-height: 36px;
   border-radius: 20px;
-  overflow-y: scroll;
   background-color: #e5ceee;
   text-indent: 52px;
 }
 .biography p {
   margin-bottom: 8px;
+}
+.biography p:last-child {
+  margin-bottom: 0;
+}
+.no-info {
+  background-color: #e5ceee;
+  line-height: 36px;
+  border-radius: 20px;
+  text-indent: 52px;
+  padding: 16px;
+  width: 100%;
+  font-size: 24px;
 }
 #gallery:checked ~ label {
   font-size: 38px;

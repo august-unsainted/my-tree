@@ -142,7 +142,7 @@ function modalShow(a) {
     })
     for (i = 0; i < person[a].screensNumber; i++) {
       if (person[a].descriptions[i] === undefined) {
-        descriptionsDiv.innerHTML += '<span class="description"> </span>'
+        descriptionsDiv.innerHTML += '<span class="description" style="padding:0;"> </span>'
         person[a].descriptions[i] = ''
       }
       index = i + 1
@@ -167,7 +167,7 @@ function modalShow(a) {
     next.onclick = () => {
       sliderNext()
     }
-  } else screenPreview.innerHTML = '<p>У персонажа нет галереи</p>'
+  } else screenPreview.innerHTML = '<p class="no-info">У персонажа нет галереи</p>'
 }
 
 addEventListener('keydown', (e) => {
