@@ -28,20 +28,14 @@ for (let i = 0; i < sims.length; i++) {
   })
   if (sims[i].style.content == '')
     sims[i].style.content = 'url(./icons/no-img.png'
-  
-  // person.forEach((person) => {
-  //   if (sims[i].className.includes(person.firstName) == true) {
-  //     tipDiv = document.createElement('div')
-  //     tipSpan = document.createElement('span')
-  //     tipSpan.setAttribute('class', 'simTip')
-  //     tipSpan.textContent = person.firstName + ' ' + person.lastName
-  //     tipDiv.setAttribute('class', 'simTipDiv')
-  //     sims[i].parentNode.insertBefore(tipDiv, sims[i])
-  //     tipDiv.appendChild(sims[i], tipSpan)
-  //     tipDiv.appendChild(tipSpan)
-  //   }
-  // })
 }
+
+let icons = document.querySelectorAll('.icon')
+icons.forEach((icon) => {
+  iconType = icon.className.replace('icon', '')
+  icon.style.content = `url(./icons/${iconType}.png)`
+  console.log(iconType)
+})
 
 function modalOpen(mainModal, mainModalWindow) {
   body.style.overflow = 'hidden'
@@ -140,7 +134,8 @@ function modalShow(a) {
     })
     for (i = 0; i < person[a].screensNumber; i++) {
       if (person[a].descriptions[i] === undefined) {
-        descriptionsDiv.innerHTML += '<span class="description" style="padding:0;"> </span>'
+        descriptionsDiv.innerHTML +=
+          '<span class="description" style="padding:0;"> </span>'
         person[a].descriptions[i] = ''
       }
       index = i + 1
@@ -165,7 +160,8 @@ function modalShow(a) {
     next.onclick = () => {
       sliderNext()
     }
-  } else screenPreview.innerHTML = '<p class="no-info">У персонажа нет галереи</p>'
+  } else
+    screenPreview.innerHTML = '<p class="no-info">У персонажа нет галереи</p>'
   let traitsArray = traits.childNodes
   death.addEventListener('mouseover', () => {
     traitsArray.forEach((trait) => {
