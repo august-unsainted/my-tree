@@ -284,6 +284,7 @@ span {
 }
 .biography {
   height: 0;
+  padding: 0;
   width: inherit;
   transition: all 0.35s ease-in 0s;
   overflow: hidden;
@@ -331,6 +332,10 @@ span {
     display: inline;
     visibility: visible;
   }
+  .no-info {
+    height: max-content;
+    padding: 16px;
+  }
 }
 .gallery {
   transition: all 0.4s ease-in 0s;
@@ -340,6 +345,10 @@ span {
   flex-wrap: wrap;
   gap: 16px;
   font-size: 22px;
+  .no-info {
+    height: 0;
+    padding: 0;
+  }
 }
 .screen-preview {
   display: none;
