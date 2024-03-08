@@ -254,7 +254,6 @@ span {
 }
 .section label {
   font-size: 26px;
-  width: 253px;
   height: 38px;
   display: flex;
   align-items: center;
@@ -266,7 +265,6 @@ span {
 }
 #bio:checked ~ label {
   font-size: 38px;
-  width: 310px;
   height: 46px;
   gap: 32px;
   margin-bottom: 28px;
@@ -312,7 +310,6 @@ span {
 }
 #gallery:checked ~ label {
   font-size: 38px;
-  width: 310px;
   height: 46px;
   gap: 32px;
   margin-bottom: 28px;
@@ -361,7 +358,6 @@ span {
 }
 #family:checked ~ label {
   font-size: 38px;
-  width: 310px;
   height: 46px;
   gap: 32px;
   margin-bottom: 28px;
