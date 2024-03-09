@@ -10,15 +10,14 @@ const mainModalWindow = document.querySelector('.modal-window')
 const mainOverlay = document.querySelector('.overlay')
 const descriptionsDiv = document.getElementById('description')
 const screenPreview = document.getElementById('screen-preview')
+const counter = document.querySelector('.counter')
 let death = document.querySelector('.death')
 let screens = document.querySelectorAll('.screens')
 let sims = document.getElementsByClassName('sims')
 let mainName = document.getElementById('main-name')
 let avatar = document.getElementById('avatar')
 let traits = document.getElementById('traits')
-let descriptions = document.querySelectorAll('.description')
 let biography = document.querySelector('.biography')
-let input = document.getElementsByTagName('input')
 let body = document.body
 
 for (let i = 0; i < sims.length; i++) {
@@ -34,7 +33,6 @@ let icons = document.querySelectorAll('.icon')
 icons.forEach((icon) => {
   iconType = icon.className.replace('icon', '')
   icon.style.content = `url(./icons/${iconType}.png)`
-  console.log(iconType)
 })
 
 function modalOpen(mainModal, mainModalWindow) {
@@ -71,7 +69,11 @@ function display() {
       screens[i + 1].style.opacity = '0'
       descriptions[i + 1].classList.remove('visible')
     }
-    document.querySelector('.counter').innerHTML = i + 1 + '/' + screens.length
+    counter.innerHTML = i + 1 + '/' + screens.length
+    if (descriptions[i].innerHTML === '') {
+      counter.classList.add('bgColor')
+      descriptions[i].style.padding ='0'
+    } else counter.classList.remove('bgColor')
     galleryOverlay.onclick = () => {
       descriptions.forEach((item) => item.classList.remove('visible'))
       screens.forEach((item) => (item.style.opacity = '0'))
@@ -98,27 +100,36 @@ function sliderNext() {
   display()
 }
 
-function clearHTML(a, b, c, d, e) {
-  let array = [a, b, c, d, e]
-  array.forEach((item) => (item.innerHTML = ''))
-}
-
 function modalShow(a) {
   localStorage.setItem('activePerson', a)
   avatar.style.content = `url(./avatar/${person[a].firstName}.png`
-  clearHTML(descriptionsDiv, slider, traits, biography, screenPreview)
+  array = [descriptionsDiv, slider, traits, biography, screenPreview]
+  array.forEach((item) => (item.innerHTML = ''))
   biography.scrollTop = 0
   traits.scrollTo(0, 0)
   mainName.innerHTML = person[a].firstName + ' ' + person[a].lastName
   if (person[a].death === undefined) {
     death.style.visibility = 'hidden'
+    if (person[a].traits === undefined)
+      traits.innerHTML = '<li>Нет черт характера</li>'
   } else {
     death.style.visibility = 'visible'
     traits.innerHTML = `<li class="death-trait">${person[a].death}</li>`
+    let traitsArray = traits.childNodes
+    death.addEventListener('mouseover', () => {
+      traitsArray.forEach((trait) => {
+        trait.style.opacity = '0.5'
+      })
+      deathTrait = document.querySelector('.death-trait')
+      deathTrait.style.opacity = '1'
+    })
+    death.addEventListener('mouseout', () => {
+      traitsArray.forEach((trait) => {
+        trait.style.opacity = '1'
+      })
+    })
   }
-  if (person[a].traits === undefined) {
-    traits.innerHTML = '<li>Нет черт характера</li>'
-  } else
+  if (person[a].traits !== undefined)
     person[a].traits.forEach((item) => (traits.innerHTML += `<li>${item}</li>`))
 
   if (person[a].bio !== undefined) {
@@ -129,31 +140,30 @@ function modalShow(a) {
   } else biography.innerHTML = '<p>У персонажа нет биографии</p>'
 
   if (person[a].screensNumber !== undefined) {
-    person[a].descriptions.forEach((item) => {
-      descriptionsDiv.innerHTML += `<span class="description">${item}</span>`
-    })
+    person[a].descriptions.forEach(
+      (item) =>
+        (descriptionsDiv.innerHTML += `<span class="description">${item}</span>`)
+    )
     for (i = 0; i < person[a].screensNumber; i++) {
       if (person[a].descriptions[i] === undefined) {
         descriptionsDiv.innerHTML +=
-          '<span class="description" style="padding:0;"> </span>'
+          '<span class="description"></span>'
         person[a].descriptions[i] = ''
       }
-      index = i + 1
-      slider.innerHTML += `<img class="screens" src="./screen${
-        a + 1
-      }/${index}.png">`
-      screenPreview.innerHTML += `<img class="screen-preview select-cursor" data-index="${index}" src="./screen${
-        a + 1
-      }/${index}.png">`
+      a1 = a + 1
+      i1 = i + 1
+      slider.innerHTML += `<img class="screens" src="./screen${a1}/${i1}.png">`
+      screenPreview.innerHTML += `<img class="screen-preview" src="./screen${a1}/${i1}.png">`
     }
-    document.querySelectorAll('.screen-preview').forEach((btn) => {
-      btn.addEventListener('click', (btn) => {
-        i = btn.currentTarget.getAttribute('data-index') - 1
+    let btns = document.querySelectorAll('.screen-preview')
+    for (let index = 0; index < btns.length; index++) {
+      btns[index].addEventListener('click', () => {
+        i = index
         display()
         open(a)
         mainOverlay.style.zIndex = '-1'
       })
-    })
+    }
     prev.onclick = () => {
       sliderPrev()
     }
@@ -162,19 +172,6 @@ function modalShow(a) {
     }
   } else
     screenPreview.innerHTML = '<p class="no-info">У персонажа нет галереи</p>'
-  let traitsArray = traits.childNodes
-  death.addEventListener('mouseover', () => {
-    traitsArray.forEach((trait) => {
-      trait.style.opacity = '0.5'
-    })
-    deathTrait = document.querySelector('.death-trait')
-    deathTrait.style.opacity = '1'
-  })
-  death.addEventListener('mouseout', () => {
-    traitsArray.forEach((trait) => {
-      trait.style.opacity = '1'
-    })
-  })
 }
 
 addEventListener('keydown', (e) => {
@@ -182,18 +179,23 @@ addEventListener('keydown', (e) => {
   if (e.key == 'ArrowRight') sliderNext()
 })
 
-mainOverlay.onclick = () => {
-  modalClose(mainModal, mainModalWindow)
+function closeInputs() {
+  let input = document.getElementsByTagName('input')
   for (i = 0; i < input.length; i++) {
     if (input[i].type == 'checkbox') input[i].checked = false
   }
+}
+
+mainOverlay.onclick = () => {
+  modalClose(mainModal, mainModalWindow)
+  closeInputs()
   localStorage.setItem('isOpen', false)
   body.style.overflow = 'scroll'
 }
 
-activeModal = localStorage.getItem('isOpen')
-activePerson = Number(localStorage.getItem('activePerson'))
-activeGallery = localStorage.getItem('galleryIsOpen')
+let activeModal = localStorage.getItem('isOpen')
+let activePerson = Number(localStorage.getItem('activePerson'))
+let activeGallery = localStorage.getItem('galleryIsOpen')
 
 if (activeModal == 'true') {
   modalShow(activePerson)
@@ -206,16 +208,12 @@ if (activeModal == 'true') {
   }
 }
 
-for (n = 0; n < sims.length; n++) {
-  let simName = sims[n].className
+for (let n = 0; n < sims.length; n++) {
   sims[n].addEventListener('click', () => {
     person.forEach((person, a) => {
-      if (simName.includes(person.firstName) == true) {
-        if (activeModal === 'true') {
-          for (i = 0; i < input.length; i++) {
-            if (input[i].type == 'checkbox') input[i].checked = false
-          }
-        }
+      if (sims[n].className.includes(person.firstName) == true) {
+        activeModal = localStorage.getItem('isOpen')
+        if (activeModal === 'true') closeInputs()
         modalShow(a)
         modalOpen(mainModal, mainModalWindow)
       }
