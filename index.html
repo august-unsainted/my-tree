@@ -8,11 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
   <script src="person.js" defer></script>
+  <script src="./node_modules/dragscroll/dragscroll.js" defer></script>
   <script src="app.js" defer></script>
   <title>Моя династия</title>
 </head>
 
-<body class="normal-cursor">
+<body class="normal-cursor dragscroll">
   <div class="header">
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -104,7 +105,6 @@
       </div>
     </div>
   </div>
-  <script defer src="./dragscroll/dragscroll.js"></script>
   <div class="modal"> <!-- Всплывающее окно-->
     <div class="modal-window">
       <div class="general">
@@ -122,7 +122,7 @@
               </svg>
             </div>
           </div>
-          <ul id="traits" class="traits dragscroll drag-cursor">
+          <ul id="traits" class="traits dragscroll">
           </ul>
         </div>
       </div>
